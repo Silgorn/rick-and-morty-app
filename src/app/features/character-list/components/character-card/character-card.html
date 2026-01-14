@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-image">
+    <img [src]="character().image" [alt]="character().name" />
+  </div>
+
+  <div class="card-content">
+    <h3>{{ character().name }}</h3>
+
+    <div class="status">
+      <span class="indicator" [class]="character().status.toLowerCase()"></span>
+      {{ character().status }} - {{ character().species }}
+    </div>
+
+    <div class="info-group">
+      <p>Gender:</p>
+      <span>{{ character().gender }}</span>
+    </div>
+
+    <div class="info-group">
+      <p>Last known location:</p>
+      <span class="location-name">{{ character().location.name }}</span>
+    </div>
+
+    <button class="details-btn">View Details</button>
+  </div>
+</div>
+
+<!-- [routerLink]="['/character', character().id]" -->

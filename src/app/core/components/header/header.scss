@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 30px;
+  background-color: #1a1919;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .logo {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #f1eeee;
+    margin: 0;
+  }
+}
