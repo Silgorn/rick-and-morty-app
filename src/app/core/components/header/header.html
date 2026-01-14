@@ -1,6 +1,17 @@
 <header>
-  <a routerLink="/" class="logo-link">
-    <img class="logo" src="icons/logo.png" alt="Home" />
-  </a>
-  <h1>Rick and Morty App</h1>
+  <div class="brand">
+    <a routerLink="/" class="logo-link">
+      <img src="icons/logo.png" alt="Home" class="logo" />
+    </a>
+    <h1>Rick and Morty</h1>
+  </div>
+
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Search characters..."
+    (input)="onSearch($event)"
+  />
+
+  <div class="spacer"></div>
 </header>

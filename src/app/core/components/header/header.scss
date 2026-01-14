@@ -1,27 +1,62 @@
 header {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
   padding: 10px 30px;
   background-color: #1a1919;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    min-width: 0;
+  }
 
   .logo {
     height: 50px;
     width: auto;
     transition: transform 0.3s ease;
-
     &:hover {
       transform: scale(1.1) rotate(5deg);
     }
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #f1eeee;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .search-input {
+    flex: 0 1 400px;
+    min-width: 150px; // Чтобы инпут не превратился в "полосочку" на мобильных
+    margin: 0 20px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: white;
+    outline: none;
+
+    margin: 0 auto;
+
+    &:focus {
+      border-color: #db6300;
+      box-shadow: 0 0 10px rgba(0, 176, 200, 0.3);
+    }
+  }
+
+  .spacer {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
   }
 }
