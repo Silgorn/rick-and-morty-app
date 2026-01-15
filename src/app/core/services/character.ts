@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { Character, CharacterResponse } from '../models/character.model';
-import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, map, of, switchMap, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -27,12 +27,22 @@ export class CharacterService {
       switchMap((name) =>
         this.http.get<CharacterResponse>(`${this.apiUrl}/?name=${name}`).pipe(
           map((res) => res.results),
+          catchError((error) => {
+            if (error.status === 404) {
+              this.errorMessage.set(`No characters found for "${name}"`);
+            } else {
+              this.errorMessage.set('Something went wrong. Please try again later.');
+            }
+            return of([]);
+          }),
           tap(() => this.isLoading.set(false))
         )
       )
     ),
     { initialValue: [] as Character[] }
   );
+
+  errorMessage = signal<string | null>(null);
 
   getCharacterById(id: string) {
     return this.http.get<Character>(`${this.apiUrl}/${id}`);

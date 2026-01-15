@@ -1,7 +1,10 @@
 <div class="grid">
   @for (char of characters(); track char.id) {
   <app-character-card [character]="char" />
-  } @empty {
-  <p>Loading characters...</p>
-  }
+  } @empty { @if (!isLoading()) {
+  <div class="no-results">
+    <p>No results found for your request "{{ searchTerm() }}"</p>
+    <small>Try another name, for example "Rick" or "Morty"</small>
+  </div>
+  } }
 </div>

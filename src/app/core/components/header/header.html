@@ -6,12 +6,22 @@
     <h1>Rick and Morty</h1>
   </div>
 
-  <input
-    type="text"
-    class="search-input"
-    placeholder="Search characters..."
-    (input)="onSearch($event)"
-  />
+  @if (!isDetailsPage()) {
+  <div class="search-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search characters..."
+      [value]="searchTerm()"
+      (input)="onSearch($event)"
+      #searchInput
+    />
+
+    @if (searchTerm()) {
+    <button class="clear-btn" (click)="clearSearch(searchInput)">&times;</button>
+    }
+  </div>
+  }
 
   <div class="spacer"></div>
 </header>

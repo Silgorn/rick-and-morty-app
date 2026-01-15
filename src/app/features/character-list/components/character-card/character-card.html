@@ -21,8 +21,6 @@
       <span class="location-name">{{ character().location.name }}</span>
     </div>
 
-    <button class="details-btn">View Details</button>
+    <button class="details-btn" [routerLink]="['/character', character().id]">View Details</button>
   </div>
 </div>
-
-<!-- [routerLink]="['/character', character().id]" -->

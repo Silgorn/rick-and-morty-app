@@ -1,4 +1,4 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CharacterService } from '../../core/services/character';
 import { CharacterCard } from './components/character-card/character-card';
 
@@ -12,10 +12,6 @@ export class CharacterList {
   private characterService = inject(CharacterService);
 
   characters = this.characterService.characters;
-
-  constructor() {
-    effect(() => {
-      console.log('Список обновился:', this.characters());
-    });
-  }
+  isLoading = this.characterService.isLoading;
+  searchTerm = this.characterService.searchTerm;
 }

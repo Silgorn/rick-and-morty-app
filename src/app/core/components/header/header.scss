@@ -12,7 +12,7 @@ header {
     display: flex;
     align-items: center;
     gap: 20px;
-    flex: 1;
+    flex: 0 0 30%;
     min-width: 0;
   }
 
@@ -34,29 +34,50 @@ header {
     white-space: nowrap;
   }
 
+  .search-wrapper {
+    position: relative;
+    width: 400px;
+    flex: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+
   .search-input {
-    flex: 0 1 400px;
-    min-width: 150px; // Чтобы инпут не превратился в "полосочку" на мобильных
-    margin: 0 20px;
-    padding: 10px 15px;
+    width: 100%;
+    min-width: 0;
+
+    padding: 10px 40px 10px 15px;
     font-size: 1rem;
     border: 1px solid #333;
     border-radius: 8px;
     background-color: #2a2a2a;
     color: white;
     outline: none;
-
-    margin: 0 auto;
+    box-sizing: border-box;
 
     &:focus {
       border-color: #db6300;
-      box-shadow: 0 0 10px rgba(0, 176, 200, 0.3);
+      box-shadow: 0 0 10px rgba(219, 99, 0, 0.2);
+    }
+  }
+
+  .clear-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      color: #f1eeee;
     }
   }
 
   .spacer {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+    flex: 0 0 30%;
   }
 }
