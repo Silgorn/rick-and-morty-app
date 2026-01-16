@@ -52,7 +52,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: gray; // по умолчанию
+        background: gray;
 
         &.alive {
           background: #55cc44;
@@ -65,13 +65,12 @@
     .location {
       p {
         margin: 0;
-        color: #f1eeee; // Серый цвет для подзаголовка
+        color: #f1eeee;
         font-size: 1rem;
         font-weight: 500;
       }
 
       label {
-        // Чуть меньше, чтобы уместиться
         display: block;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -84,7 +83,6 @@
   }
 
   .details-btn {
-    // margin-top: auto;
     width: 100px;
     padding: 8px;
     border: none;

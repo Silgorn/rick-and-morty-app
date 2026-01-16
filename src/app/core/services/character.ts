@@ -13,7 +13,7 @@ export class CharacterService {
 
   searchTerm = signal<string>('');
   isLoading = signal<boolean>(false);
-  currentPage = signal<number>(1); // Добавили страницу
+  currentPage = signal<number>(1);
   errorMessage = signal<string | null>(null);
   totalInfo = signal<{ pages: number; count: number } | null>(null);
 
@@ -23,11 +23,9 @@ export class CharacterService {
   }
 
   characters = toSignal(
-    // Слушаем оба сигнала одновременно
     combineLatest([toObservable(this.searchTerm), toObservable(this.currentPage)]).pipe(
       debounceTime(300),
-      // Проверяем, изменился ли поиск. Если да — сбрасываем страницу.
-      // Но делаем это аккуратно, чтобы не вызвать бесконечный цикл.
+
       tap(([name, page]) => {
         this.isLoading.set(true);
         this.errorMessage.set(null);
@@ -46,11 +44,11 @@ export class CharacterService {
               this.errorMessage.set(`Nothing found`);
             }
             return of([]);
-          })
+          }),
         );
-      })
+      }),
     ),
-    { initialValue: [] as Character[] }
+    { initialValue: [] as Character[] },
   );
 
   getCharacterById(id: string) {

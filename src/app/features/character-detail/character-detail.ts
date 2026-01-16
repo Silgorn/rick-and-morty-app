@@ -1,17 +1,18 @@
-import { Component, inject, Input, input, signal } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
+import { Location } from '@angular/common';
 import { CharacterService } from '../../core/services/character';
 import { Character } from '../../core/models/character.model';
-import { RouterLink } from '@angular/router';
 import { DetailSkeleton } from './detail-skeleton/detail-skeleton';
 
 @Component({
   selector: 'app-character-detail',
-  imports: [RouterLink, DetailSkeleton],
+  imports: [DetailSkeleton],
   templateUrl: './character-detail.html',
   styleUrl: './character-detail.scss',
 })
 export class CharacterDetail {
   private characterService = inject(CharacterService);
+  private location = inject(Location);
 
   @Input() set id(characterId: string) {
     this.characterService.getCharacterById(characterId).subscribe((data) => {
@@ -20,4 +21,8 @@ export class CharacterDetail {
   }
 
   character = signal<Character | null>(null);
+
+  goBack(): void {
+    this.location.back();
+  }
 }
