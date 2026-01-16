@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CharacterService } from '../../core/services/character';
 import { CharacterCard } from './components/character-card/character-card';
+import { CharacterSkeleton } from '../character-skeleton/character-skeleton';
 
 @Component({
   selector: 'app-character-list',
-  imports: [CharacterCard],
+  imports: [CharacterCard, CharacterSkeleton],
   templateUrl: './character-list.html',
   styleUrl: './character-list.scss',
 })
@@ -16,6 +17,7 @@ export class CharacterList {
   searchTerm = this.characterService.searchTerm;
   currentPage = this.characterService.currentPage;
   totalInfo = this.characterService.totalInfo;
+  errorMessage = this.characterService.errorMessage;
 
   nextPage() {
     const info = this.totalInfo();
