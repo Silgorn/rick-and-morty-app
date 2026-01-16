@@ -4,21 +4,18 @@
   </div>
 
   <div class="card-content">
-    <h3>{{ character().name }}</h3>
+    <div>
+      <h3>{{ character().name }}</h3>
 
-    <div class="status">
-      <span class="indicator" [class]="character().status.toLowerCase()"></span>
-      {{ character().status }} - {{ character().species }}
+      <div class="status">
+        <span class="indicator" [class]="character().status.toLowerCase()"></span>
+        {{ character().status }} - {{ character().species }}
+      </div>
     </div>
 
-    <div class="info-group">
-      <p>Gender:</p>
-      <span>{{ character().gender }}</span>
-    </div>
-
-    <div class="info-group">
-      <p>Last known location:</p>
-      <span class="location-name">{{ character().location.name }}</span>
+    <div class="location">
+      <label>Last known location:</label>
+      <p class="location-name">{{ character().location.name }}</p>
     </div>
 
     <button class="details-btn" [routerLink]="['/character', character().id]">View Details</button>

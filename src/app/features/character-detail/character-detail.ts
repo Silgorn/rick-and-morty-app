@@ -1,10 +1,11 @@
 import { Component, inject, Input, input, signal } from '@angular/core';
 import { CharacterService } from '../../core/services/character';
 import { Character } from '../../core/models/character.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-character-detail',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './character-detail.html',
   styleUrl: './character-detail.scss',
 })
