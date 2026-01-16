@@ -8,3 +8,13 @@
   </div>
   } }
 </div>
+
+@if (totalInfo(); as info) { @if (info.pages > 1) {
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="currentPage() === 1">Previous</button>
+
+  <span class="page-counter"> Page {{ currentPage() }} of {{ info.pages }} </span>
+
+  <button (click)="nextPage()" [disabled]="currentPage() === info.pages">Next</button>
+</div>
+} }
