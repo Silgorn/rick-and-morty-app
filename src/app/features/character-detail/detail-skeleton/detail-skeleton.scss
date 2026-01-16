@@ -1,0 +1,63 @@
+// Эти стили можно добавить в файл компонента скелетона
+.skeleton-container {
+  border: 1px solid transparent; // Чтобы не двоилась рамка, если она есть в базе
+
+  .skeleton-item {
+    background: #4a4847; // Чуть светлее фона карточки
+    border-radius: 4px;
+    margin: 0 auto; // Центрируем блоки, так как в родителе text-align: center
+  }
+
+  // Круглое фото 200x200
+  .circle-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  .title-line {
+    height: 2.2rem;
+    width: 250px;
+    margin-bottom: 12px;
+  }
+
+  .status-line {
+    height: 1rem;
+    width: 150px;
+    margin-bottom: 20px;
+  }
+
+  .label-line {
+    height: 0.8rem;
+    width: 80px;
+    margin-bottom: 6px;
+  }
+
+  .text-line {
+    height: 1.2rem;
+    width: 180px;
+  }
+
+  .btn-line {
+    width: 150px;
+    height: 38px;
+    margin-top: 40px;
+    border-radius: 6px;
+  }
+}
+
+// Глобальная анимация shimmer (лучше вынести в styles.scss)
+.shimmer {
+  background: linear-gradient(90deg, #4a4847 25%, #555352 50%, #4a4847 75%);
+  background-size: 200% 100%;
+  animation: shimmer-animation 1.5s infinite linear;
+}
+
+@keyframes shimmer-animation {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

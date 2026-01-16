@@ -1,38 +1,39 @@
 <div class="container">
   @if (character(); as char) {
-  <div class="card-detail">
-    <div class="card-image">
-      <img [src]="char.image" [alt]="char.name" />
+    <div class="card-detail">
+      <div class="card-image">
+        <img [src]="char.image" [alt]="char.name" />
+      </div>
+
+      <div class="card-content">
+        <h2>{{ char.name }}</h2>
+        <div class="status">
+          <span class="indicator" [class]="char.status.toLowerCase()"></span>
+          {{ char.status }} - {{ char.species }}
+        </div>
+
+        <div class="info-item">
+          <label>Species</label>
+          <p>{{ char.species }}</p>
+        </div>
+        <div class="info-item">
+          <label>Gender</label>
+          <p>{{ char.gender }}</p>
+        </div>
+        <div class="info-item">
+          <label>Origin</label>
+          <p>{{ char.origin.name }}</p>
+        </div>
+        <div class="info-item">
+          <label>Last known location</label>
+          <p>{{ char.location.name }}</p>
+        </div>
+
+        <button class="back-btn" routerLink="/">← Back</button>
+      </div>
     </div>
-
-    <div class="card-content">
-      <h2>{{ char.name }}</h2>
-      <div class="status">
-        <span class="indicator" [class]="char.status.toLowerCase()"></span>
-        {{ char.status }} - {{ char.species }}
-      </div>
-
-      <div class="info-item">
-        <label>Species</label>
-        <p>{{ char.species }}</p>
-      </div>
-      <div class="info-item">
-        <label>Gender</label>
-        <p>{{ char.gender }}</p>
-      </div>
-      <div class="info-item">
-        <label>Origin</label>
-        <p>{{ char.origin.name }}</p>
-      </div>
-      <div class="info-item">
-        <label>Last known location</label>
-        <p>{{ char.location.name }}</p>
-      </div>
-
-      <button class="back-btn" routerLink="/">← Back</button>
-    </div>
-  </div>
   } @else {
-  <div class="loader">Loading...</div>
+    <!-- <div class="loader">Loading...</div> -->
+    <app-detail-skeleton />
   }
 </div>

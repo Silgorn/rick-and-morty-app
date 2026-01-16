@@ -1,0 +1,22 @@
+<div class="card-detail skeleton-container">
+  <div class="card-image">
+    <div class="skeleton-item circle-img shimmer"></div>
+  </div>
+
+  <div class="card-content">
+    <div class="skeleton-item title-line shimmer"></div>
+
+    <div class="status">
+      <div class="skeleton-item status-line shimmer"></div>
+    </div>
+
+    @for (i of [1, 2, 3, 4]; track $index) {
+      <div class="info-item">
+        <div class="skeleton-item label-line shimmer"></div>
+        <div class="skeleton-item text-line shimmer"></div>
+      </div>
+    }
+
+    <div class="skeleton-item btn-line shimmer"></div>
+  </div>
+</div>
