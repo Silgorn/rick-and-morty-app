@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { CharacterService } from '../../core/services/character';
 import { Character } from '../../core/models/character.model';
 import { DetailSkeleton } from './detail-skeleton/detail-skeleton';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-character-detail',
@@ -13,6 +14,7 @@ import { DetailSkeleton } from './detail-skeleton/detail-skeleton';
 export class CharacterDetail {
   private characterService = inject(CharacterService);
   private location = inject(Location);
+  private router = inject(Router);
 
   @Input() set id(characterId: string) {
     this.characterService.getCharacterById(characterId).subscribe((data) => {
@@ -23,6 +25,10 @@ export class CharacterDetail {
   character = signal<Character | null>(null);
 
   goBack(): void {
-    this.location.back();
+    if (window.history.length > 1) {
+      this.location.back();
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 }
